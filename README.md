@@ -22,7 +22,13 @@ $ cd emokit/python/emokit
 
 4) Open "emotiv.py" and change the serial number on line 361 to your Emotiv's serial number.
 
-5) Run the "example.py" file.
+5) Go back to the python directory.
+
+```
+$ cd ..
+```
+
+6) Run the "example.py" file.
 
 ```
 $ python example.py
