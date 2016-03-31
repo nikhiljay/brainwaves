@@ -9,27 +9,43 @@ This is my project for Advanced Authentic Research (AAR). Follow the progress of
 
 ```
 $ git clone https://github.com/nikhiljay/brainwaves.git
-$ cd brainwaves-master
 ```
 
-2) In the project, go to the python directory.
+2) Plug in your <a href="https://emotiv.com" target="_blank">Emotiv</a>'s USB dongle.
+
+3) Find the Serial Number of the Emotiv by downloading HIDAPI.
+
+```
+$ git clone https://github.com/signal11/hidapi.git
+$ cd hidapi-master
+```
+
+4) In the HIDAPI go to the directory that corresponds to your operating system and run: 
+
+```
+$ make -f Makefile-manual
+```
+
+5) A hidtest file should be created in the same directory. Open the hidtest to run it.
+
+6) The output should be a list of devices that are connected to the computer. Look at the Emotiv device information and copy the Serial Number.
+
+7) In the brianwaves project, go to the emokit directory.
 
 ```
 $ cd emokit/python/emokit
 ```
 
-3) Connect your <a href="https://emotiv.com" target="_blank">Emotiv</a>.
-
-4) Open "emotiv.py" and change the serial number on line 361 to your Emotiv's serial number.
-
-5) Go back to the python directory.
+8) Open "emotiv.py" and paste the serial number on line 361 where it says:
 
 ```
-$ cd ..
+serial_number=""
 ```
 
-6) Run the "example.py" file.
+9) Turn on the <a href="https://emotiv.com" target="_blank">Emotiv</a>.
+
+10) Run the "emotiv.py" file.
 
 ```
-$ python example.py
+$ python emotiv.py
 ```
