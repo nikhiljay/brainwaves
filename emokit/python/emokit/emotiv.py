@@ -358,7 +358,7 @@ class Emotiv(object):
     """
     Receives, decrypts and stores packets received from Emotiv Headsets.
     """
-    def __init__(self, display_output=True, serial_number="acc32f0e5c1f679803e0c56577f2a4c1", is_research=False):
+    def __init__(self, display_output=True, serial_number="SN201512233488GM", is_research=False):
         """
         Sets up initial values.
         """
@@ -518,7 +518,7 @@ class Emotiv(object):
             print "Serial number needs to be specified manually in __init__()."
             raise ValueError
         else:
-            print "Serial number is specified! YAYYYYYYY!"
+            print "Serial number is specified! LMAOOO!"
         crypto = gevent.spawn(self.setup_crypto, self.serial_number)
         console_updater = gevent.spawn(self.update_console)
         zero = 0
