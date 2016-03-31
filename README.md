@@ -17,7 +17,7 @@ $ git clone https://github.com/nikhiljay/brainwaves.git
 
 ```
 $ git clone https://github.com/signal11/hidapi.git
-$ cd hidapi-master
+$ cd hidapi
 ```
 
 4) In the HIDAPI go to the directory that corresponds to your operating system and run: 
