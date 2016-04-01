@@ -13,6 +13,14 @@ from Crypto import Random
 from gevent.queue import Queue
 from subprocess import check_output
 
+#FIREBASE STUFF GOES HERE
+from firebase import firebase
+firebase = firebase.FirebaseApplication('https://brainwaves.firebaseio.com', None)
+# result = firebase.get('/data')
+result = firebase.post('/data', "hey")
+print result
+
+
 # How long to gevent-sleep if there is no data on the EEG.
 # To be precise, this is not the frequency to poll on the input device
 # (which happens with a blocking read), but how often the gevent thread

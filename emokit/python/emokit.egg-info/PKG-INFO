@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: emokit
+Version: 0.0.1
+Summary: emotiv epoc eeg headset sdk
+Home-page: https://github.com/kanzure/emokit
+Author: Bryan Bishop
+Author-email: kanzure@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: any
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python

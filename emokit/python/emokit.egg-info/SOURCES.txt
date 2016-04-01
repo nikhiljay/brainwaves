@@ -1,0 +1,12 @@
+MANIFEST.in
+requirements.txt
+setup.py
+emokit/__init__.py
+emokit/emotiv.py
+emokit.egg-info/PKG-INFO
+emokit.egg-info/SOURCES.txt
+emokit.egg-info/dependency_links.txt
+emokit.egg-info/not-zip-safe
+emokit.egg-info/requires.txt
+emokit.egg-info/top_level.txt
+tests/test_emokit.py
