@@ -29,10 +29,10 @@ import threading
 
 @route('/')
 def index():
-    # with  as tweetfile:
+    with open("data.txt") as tweetfile:
+        pyresponse = tweetfile.read()
 
-
-    return "" + str(open("data.txt"))
+    return "" + str(pyresponse)
     # return '\n'.join("%s Reading: %s Quality: %s" %
     #                 (k[1], globalsensor[k[1]]['value'],
     #                  globalsensor[k[1]]['quality']) for k in enumerate(globalsensor))
