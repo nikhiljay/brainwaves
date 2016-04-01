@@ -657,13 +657,14 @@ class Emotiv(object):
                 #                 (k[1], self.sensors[k[1]]['value'],
                 #                  self.sensors[k[1]]['quality']) for k in enumerate(self.sensors)))
 
-                globalsensor = self.sensors
+                tojson = self.sensors
+                self.sensors["battery"] = g_battery
 
                 with open('data.txt', 'w') as outfile:
-                    json.dump(self.sensors, outfile)
+                    json.dump(tojson, outfile)
 
                 # print("troll" + str(self.sensors))
-                print("troll" + str(globalsensor))
+                print("troll" + str(tojson))
                 # print "Battery: %i" % g_battery
                 gevent.sleep(.001)
 
