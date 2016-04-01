@@ -13,12 +13,22 @@ from Crypto import Random
 from gevent.queue import Queue
 from subprocess import check_output
 
-#FIREBASE STUFF GOES HERE
-from firebase import firebase
-firebase = firebase.FirebaseApplication('https://brainwaves.firebaseio.com', None)
-# result = firebase.get('/data')
-result = firebase.post('/data', "hey")
-print result
+# #FIREBASE STUFF GOES HERE
+# from firebase import firebase
+# firebase = firebase.FirebaseApplication('https://emoi.firebaseio.com', None)
+# # result = firebase.get('/data')
+# result = firebase.post('/data', "hey")
+# print result
+
+from bottle import route, run, template
+import threading
+
+@route('/')
+def index():
+    return "asdsd"
+
+# run(host='localhost', port=8000
+threading.Thread(target=run, kwargs=dict(host='localhost', port=8000)).start()
 
 
 # How long to gevent-sleep if there is no data on the EEG.
