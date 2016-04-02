@@ -2,8 +2,10 @@ import os
 import platform
 system_platform = platform.system()
 if system_platform == "Windows":
-        import socket  # Needed to prevent gevent crashing on Windows. (surfly / gevent issue #459)
-        import pywinusb.hid as hid
+    # Needed to prevent gevent crashing on Windows. (surfly / gevent issue
+    # #459)
+    import socket
+    import pywinusb.hid as hid
 else:
     if system_platform == "Darwin":
         import hid
@@ -13,33 +15,18 @@ from Crypto import Random
 from gevent.queue import Queue
 from subprocess import check_output
 
-# #FIREBASE STUFF GOES HERE
-# from firebase import firebase
-# firebase = firebase.FirebaseApplication('https://emoi.firebaseio.com', None)
-# # result = firebase.get('/data')
-# result = firebase.post('/data', "hey")
-# print result
-
 from bottle import route, run, template
 import json
 import threading
 
 
-# globalsensor
-
 @route('/')
 def index():
     with open("data.txt") as tweetfile:
         pyresponse = tweetfile.read()
-
     return "" + str(pyresponse)
-    # return '\n'.join("%s Reading: %s Quality: %s" %
-    #                 (k[1], globalsensor[k[1]]['value'],
-    #                  globalsensor[k[1]]['quality']) for k in enumerate(globalsensor))
 
-# run(host='localhost', port=8000
 threading.Thread(target=run, kwargs=dict(host='localhost', port=8000)).start()
-
 
 # How long to gevent-sleep if there is no data on the EEG.
 # To be precise, this is not the frequency to poll on the input device
@@ -69,7 +56,8 @@ sensor_bits = {
     'FC6': [214, 215, 200, 201, 202, 203, 204, 205, 206, 207, 192, 193, 194, 195],
     'F4': [216, 217, 218, 219, 220, 221, 222, 223, 208, 209, 210, 211, 212, 213]
 }
-quality_bits = [99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112]
+quality_bits = [99, 100, 101, 102, 103, 104,
+                105, 106, 107, 108, 109, 110, 111, 112]
 
 # this is useful for further reverse engineering for EmotivPacket
 byte_names = {
@@ -263,7 +251,8 @@ def get_linux_setup():
                 # Great we found it. But we need to use the second one...
                 hidraw = input[1]
                 hidraw_id = int(hidraw[-1])
-                # The dev headset might use the first device, or maybe if more than one are connected they might.
+                # The dev headset might use the first device, or maybe if more
+                # than one are connected they might.
                 hidraw_id += 1
                 hidraw = "hidraw" + hidraw_id.__str__()
                 print "Serial: " + serial + " Device: " + hidraw + " (Active)"
@@ -287,9 +276,9 @@ def hid_enumerate():
 
 
 def is_old_model(serial_number):
-        if "GM" in serial_number[-2:]:
-                return False
-        return True
+    if "GM" in serial_number[-2:]:
+        return False
+    return True
 
 
 class EmotivPacket(object):
@@ -316,7 +305,7 @@ class EmotivPacket(object):
         sensors['X']['value'] = self.gyro_x
         sensors['Y']['value'] = self.gyro_y
         for name, bits in sensor_bits.items():
-            #Get Level for sensors subtract 8192 to get signed value
+            # Get Level for sensors subtract 8192 to get signed value
             value = get_level(self.raw_data, bits) - 8192
             setattr(self, name, (value,))
             sensors[name]['value'] = value
@@ -330,9 +319,11 @@ class EmotivPacket(object):
         Optionally will return the value.
         """
         if self.old_model:
-            current_contact_quality = get_level(self.raw_data, quality_bits) / 540
+            current_contact_quality = get_level(
+                self.raw_data, quality_bits) / 540
         else:
-            current_contact_quality = get_level(self.raw_data, quality_bits) / 1024
+            current_contact_quality = get_level(
+                self.raw_data, quality_bits) / 1024
         sensor = ord(self.raw_data[0])
         if sensor == 0 or sensor == 64:
             sensors['F3']['quality'] = current_contact_quality
@@ -386,6 +377,7 @@ class Emotiv(object):
     """
     Receives, decrypts and stores packets received from Emotiv Headsets.
     """
+
     def __init__(self, display_output=True, serial_number="SN201512233488GM", is_research=False):
         """
         Sets up initial values.
@@ -417,7 +409,8 @@ class Emotiv(object):
             'Unknown': {'value': 0, 'quality': 0},
             'Battery': {'value': 0}
         }
-        self.serial_number = serial_number  # You will need to set this manually for OS X.
+        # You will need to set this manually for OS X.
+        self.serial_number = serial_number
         self.old_model = False
 
     def setup(self):
@@ -492,7 +485,8 @@ class Emotiv(object):
         """
         _os_decryption = False
         if os.path.exists('/dev/eeg/raw'):
-            # The decryption is handled by the Linux epoc daemon. We don't need to handle it.
+            # The decryption is handled by the Linux epoc daemon. We don't need
+            # to handle it.
             _os_decryption = True
             hidraw = open("/dev/eeg/raw")
         else:
@@ -511,13 +505,14 @@ class Emotiv(object):
                     if _os_decryption:
                         self.packets.put_nowait(EmotivPacket(data))
                     else:
-                        #Queue it!
+                        # Queue it!
                         self.packets_received += 1
                         tasks.put_nowait(data)
                     gevent.sleep(0)
                 else:
                     # No new data from the device; yield
-                    # We cannot sleep(0) here because that would go 100% CPU if both queues are empty
+                    # We cannot sleep(0) here because that would go 100% CPU if
+                    # both queues are empty
                     gevent.sleep(DEVICE_POLL_INTERVAL)
             except KeyboardInterrupt:
                 self.running = False
@@ -553,22 +548,25 @@ class Emotiv(object):
         zero = 0
         while self.running:
             try:
-                # Doesn't seem to matter how big we make the buffer 32 returned every time, 33 for other platforms
+                # Doesn't seem to matter how big we make the buffer 32 returned
+                # every time, 33 for other platforms
                 data = hidraw.read(34)
                 if len(data) == 32:
-                    # Most of the time the 0 is truncated? That's ok we'll add it...
+                    # Most of the time the 0 is truncated? That's ok we'll add
+                    # it...
                     data = [zero] + data
                 if data != "":
                     if _os_decryption:
                         self.packets.put_nowait(EmotivPacket(data))
                     else:
-                        #Queue it!
+                        # Queue it!
                         tasks.put_nowait(''.join(map(chr, data[1:])))
                         self.packets_received += 1
                     gevent.sleep(0)
                 else:
                     # No new data from the device; yield
-                    # We cannot sleep(0) here because that would go 100% CPU if both queues are empty.
+                    # We cannot sleep(0) here because that would go 100% CPU if
+                    # both queues are empty.
                     gevent.sleep(DEVICE_POLL_INTERVAL)
             except KeyboardInterrupt:
                 self.running = False
@@ -620,8 +618,10 @@ class Emotiv(object):
             while not tasks.empty():
                 task = tasks.get()
                 try:
-                    data = cipher.decrypt(task[:16]) + cipher.decrypt(task[16:])
-                    self.packets.put_nowait(EmotivPacket(data, self.sensors, self.old_model))
+                    data = cipher.decrypt(
+                        task[:16]) + cipher.decrypt(task[16:])
+                    self.packets.put_nowait(EmotivPacket(
+                        data, self.sensors, self.old_model))
                     self.packets_processed += 1
                 except:
                     pass
@@ -649,23 +649,21 @@ class Emotiv(object):
         """
         if self.display_output:
             while self.running:
-                # if system_platform == "Windows":
-                    # os.system('cls')
-                # else:
-                    # os.system('clear')
+                # os.system('clear')
                 # print "Packets Received: %s Packets Processed: %s" % (self.packets_received, self.packets_processed)
                 # print('\n'.join("%s Reading: %s Quality: %s" %
                 #                 (k[1], self.sensors[k[1]]['value'],
-                #                  self.sensors[k[1]]['quality']) for k in enumerate(self.sensors)))
+                # self.sensors[k[1]]['quality']) for k in
+                # enumerate(self.sensors)))
 
-                tojson = self.sensors
+                toJSON = self.sensors
                 self.sensors['Battery']['value'] = g_battery
 
                 with open('data.txt', 'w') as outfile:
-                    json.dump(tojson, outfile)
+                    json.dump(toJSON, outfile)
 
-                # print("troll" + str(self.sensors))
-                print("troll" + str(tojson))
+                print(str(toJSON))
+
                 # print "Battery: %i" % g_battery
                 gevent.sleep(.001)
 
