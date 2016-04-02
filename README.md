@@ -42,10 +42,31 @@ $ cd emokit/python/emokit
 serial_number=""
 ```
 
-9) Turn on the <a href="https://emotiv.com" target="_blank">Emotiv</a>.
-
 10) Run the "emotiv.py" file.
 
 ```
 $ python emotiv.py
 ```
+
+11) If there are any dependencies that need to be installed used the "pip" command.
+
+```
+$ sudo pip install [missing dependency goes here]
+```
+
+12) Install all dependencies until the following error is produced:
+
+```
+Traceback (most recent call last):
+  File "emotiv.py", line 674, in <module>
+    a.setup()
+  File "emotiv.py", line 432, in setup
+    self.setup_darwin()
+  File "emotiv.py", line 537, in setup_darwin
+    hidraw = hid.device(0x21a1, 0x0001)
+  File "hid.pyx", line 45, in hid.device.__cinit__ (hid.c:1280)
+```
+
+9) Turn on the <a href="https://emotiv.com" target="_blank">Emotiv</a> and try again. A succesful output should be printed:
+
+![](http://i.imgur.com/kKuvuHlm.png)
