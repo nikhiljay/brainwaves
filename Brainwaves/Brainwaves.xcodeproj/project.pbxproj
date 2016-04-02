@@ -10,35 +10,21 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
-		<key>03A3FDF6011C64C9C86213FB</key>
+		<key>00BF1E661F499BDFB94CF476</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>children</key>
+			<array>
+				<string>923F2F341487F15E0FF85843</string>
+				<string>74CDDED2642F3BF7E524C909</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
+			<string>PBXGroup</string>
 			<key>name</key>
-			<string>Pods-Brainwaves.release.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Brainwaves/Pods-Brainwaves.release.xcconfig</string>
+			<string>Pods</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>2205E08960F983754A62442C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_Brainwaves.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>2BB66A95F105FA9030A4F841</key>
+		<key>068B10A93632B8ECCC7EA226</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -62,14 +48,51 @@
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
+		<key>133A504559366C69622D1AE4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Brainwaves/Pods-Brainwaves-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>15942610788134B30DA04EAA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>6A03A5D06E75FC349164378C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>3152ED3C1CAEF0D3001BD663</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>3152ED471CAEF0D3001BD663</string>
 				<string>3152ED461CAEF0D3001BD663</string>
-				<string>CB1B4F26A8A5D28C4B97741B</string>
-				<string>EBFCA24231C79779C12D2904</string>
+				<string>00BF1E661F499BDFB94CF476</string>
+				<string>15942610788134B30DA04EAA</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -159,7 +182,7 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>9A386EC446C206D5721F1F31</string>
+				<string>77DFEFD542DE72EE23F63B5E</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -187,12 +210,12 @@
 			<string>3152ED571CAEF0D4001BD663</string>
 			<key>buildPhases</key>
 			<array>
-				<string>D6231477F856292FC3901081</string>
+				<string>E30102FA57C211353D235295</string>
 				<string>3152ED411CAEF0D3001BD663</string>
 				<string>3152ED421CAEF0D3001BD663</string>
 				<string>3152ED431CAEF0D3001BD663</string>
-				<string>2BB66A95F105FA9030A4F841</string>
-				<string>6C780C9A8FFFCC4296ECEE0C</string>
+				<string>068B10A93632B8ECCC7EA226</string>
+				<string>133A504559366C69622D1AE4</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -540,7 +563,7 @@
 		<key>3152ED581CAEF0D4001BD663</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>F7482809B695F82A34CAA4A3</string>
+			<string>923F2F341487F15E0FF85843</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -562,7 +585,7 @@
 		<key>3152ED591CAEF0D4001BD663</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>03A3FDF6011C64C9C86213FB</string>
+			<string>74CDDED2642F3BF7E524C909</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
@@ -601,34 +624,38 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>6C780C9A8FFFCC4296ECEE0C</key>
+		<key>6A03A5D06E75FC349164378C</key>
 		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
 			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Brainwaves/Pods-Brainwaves-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Brainwaves.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>9A386EC446C206D5721F1F31</key>
+		<key>74CDDED2642F3BF7E524C909</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Brainwaves.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Brainwaves/Pods-Brainwaves.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>77DFEFD542DE72EE23F63B5E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>2205E08960F983754A62442C</string>
+			<string>6A03A5D06E75FC349164378C</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -639,21 +666,22 @@
 				</array>
 			</dict>
 		</dict>
-		<key>CB1B4F26A8A5D28C4B97741B</key>
+		<key>923F2F341487F15E0FF85843</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>F7482809B695F82A34CAA4A3</string>
-				<string>03A3FDF6011C64C9C86213FB</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
 			<key>name</key>
-			<string>Pods</string>
+			<string>Pods-Brainwaves.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Brainwaves/Pods-Brainwaves.debug.xcconfig</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>D6231477F856292FC3901081</key>
+		<key>E30102FA57C211353D235295</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
@@ -682,34 +710,6 @@ fi
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
-		</dict>
-		<key>EBFCA24231C79779C12D2904</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2205E08960F983754A62442C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F7482809B695F82A34CAA4A3</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-Brainwaves.debug.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Target Support Files/Pods-Brainwaves/Pods-Brainwaves.debug.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>

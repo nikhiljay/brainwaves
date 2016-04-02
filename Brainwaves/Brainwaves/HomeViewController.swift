@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class HomeViewController: UIViewController {
 
@@ -16,33 +17,18 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         outputText.allowsEditingTextAttributes = false
-        let myUrl = NSURL(string: "https://da6ebb8b.ngrok.io");
-        let request = NSMutableURLRequest(URL:myUrl!);
-        request.HTTPMethod = "GET"
         
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-//            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-//            print(responseString!)
-            
-            do {
-                if let convertedJsonIntoDict = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
-                    print(convertedJsonIntoDict)
+        Alamofire.request(.GET, "https://59edf148.ngrok.io")
+            .responseJSON { response in
+                if let JSON = response.result.value {
                     
-                    let value = convertedJsonIntoDict["Y"]!["quality"] as? Int
-                    print(value!)
+                    for node in JSON as! [String: AnyObject] {
+                        let nodeData = node.1["value"]!
+                        self.outputText.text! += node.0 + ": " + String(nodeData!) + "\n"
+                    }
                     
-                    dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                        self.outputText.text = String(value!)
-                    })
                 }
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
         }
-        
-        task.resume()
     }
     
 }

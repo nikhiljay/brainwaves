@@ -414,7 +414,8 @@ class Emotiv(object):
             'FC5': {'value': 0, 'quality': 0},
             'X': {'value': 0, 'quality': 0},
             'Y': {'value': 0, 'quality': 0},
-            'Unknown': {'value': 0, 'quality': 0}
+            'Unknown': {'value': 0, 'quality': 0},
+            'Battery': {'value': 0}
         }
         self.serial_number = serial_number  # You will need to set this manually for OS X.
         self.old_model = False
@@ -658,7 +659,7 @@ class Emotiv(object):
                 #                  self.sensors[k[1]]['quality']) for k in enumerate(self.sensors)))
 
                 tojson = self.sensors
-                self.sensors["battery"] = g_battery
+                self.sensors['Battery']['value'] = g_battery
 
                 with open('data.txt', 'w') as outfile:
                     json.dump(tojson, outfile)

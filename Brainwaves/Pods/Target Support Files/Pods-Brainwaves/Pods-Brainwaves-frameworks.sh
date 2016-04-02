@@ -52,12 +52,8 @@ code_sign_if_enabled() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework 'Pods-Brainwaves/Charts.framework'
-  install_framework 'Pods-Brainwaves/Realm.framework'
-  install_framework 'Pods-Brainwaves/RealmSwift.framework'
+  install_framework 'Pods-Brainwaves/Alamofire.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework 'Pods-Brainwaves/Charts.framework'
-  install_framework 'Pods-Brainwaves/Realm.framework'
-  install_framework 'Pods-Brainwaves/RealmSwift.framework'
+  install_framework 'Pods-Brainwaves/Alamofire.framework'
 fi
