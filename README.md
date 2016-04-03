@@ -71,6 +71,10 @@ Traceback (most recent call last):
 
 ![](http://i.imgur.com/kKuvuHlm.png)
 
+These electrodes in the picture above represent certain parts of the brain shown here:
+
+![](http://i.imgur.com/xTtsqc7m.jpg)
+
 ## Displaying Data on an iOS Device
 
 After extracting the Emotiv data, I sent the data as a JSON file to a <a href="https://ngrok.com" target="_blank">local server</a>. Then, I created an iOS app and used <a href="https://github.com/Alamofire/Alamofire" target="_blank">Alamofire</a> to get request the data from the server. I created the app so that it would display the raw data on the iOS device. Here is what it looks like so far:
