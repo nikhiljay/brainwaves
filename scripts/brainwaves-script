@@ -1,0 +1,2 @@
+open /Users/Nikhil/Projects/Development/AAR/scripts/ngrok
+python /Users/Nikhil/Projects/Development/AAR/emokit/python/emokit/emotiv.py

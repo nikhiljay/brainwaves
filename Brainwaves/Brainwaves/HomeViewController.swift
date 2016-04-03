@@ -51,6 +51,14 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                     }
                     
                 }
+                
+                switch response.result {
+                case .Success:
+                    print("Validation Successful")
+                case .Failure(let error):
+                    self.outputText.text = String(error)
+                    print(error)
+                }
         }
     }
     
