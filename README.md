@@ -1,4 +1,4 @@
-# Measuring Brainwaves and Monitoring Behavior
+# Measuring Brainwaves
 This is my project for Advanced Authentic Research (AAR). Follow the progress of this project on my <a href="http://pugiblog.com/category/science/advanced-authentic-research/" target="_blank">blog</a>. This project uses <a href="https://github.com/openyou/emokit" target="_blank">emokit</a> which is an open source driver used to access the Emotiv Device raw data.
 
 ![](https://pugiblog.files.wordpress.com/2015/12/section1-epoc.png)
