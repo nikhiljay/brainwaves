@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -13,15 +14,55 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brainwaves" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yvm-tg-kgA">
+                                <rect key="frame" x="102" y="250" width="170" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="Pna-T9-rIs"/>
+                                    <constraint firstAttribute="height" constant="80" id="evz-Yd-LxX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AAR Project by Nikhil D'Souza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9K-nE-6SW">
+                                <rect key="frame" x="73" y="338" width="229" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ShD-G2-hts"/>
+                                    <constraint firstAttribute="width" constant="229" id="lnw-kf-F2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7hi-bA-0n9">
+                                <rect key="frame" x="132" y="332" width="110" height="3"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="Di4-En-pcA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7hi-bA-0n9" firstAttribute="top" secondItem="yvm-tg-kgA" secondAttribute="bottom" constant="2" id="5NK-Kb-j7b"/>
+                            <constraint firstItem="H9K-nE-6SW" firstAttribute="top" secondItem="7hi-bA-0n9" secondAttribute="bottom" constant="3" id="8Ye-am-CWA"/>
+                            <constraint firstItem="H9K-nE-6SW" firstAttribute="top" secondItem="7hi-bA-0n9" secondAttribute="bottom" constant="3" id="IOh-5k-nXh"/>
+                            <constraint firstItem="7hi-bA-0n9" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RRV-Uh-eZQ"/>
+                            <constraint firstItem="H9K-nE-6SW" firstAttribute="top" secondItem="yvm-tg-kgA" secondAttribute="bottom" constant="8" symbolic="YES" id="aRQ-0X-VGC"/>
+                            <constraint firstItem="yvm-tg-kgA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jSG-nL-HoG"/>
+                            <constraint firstItem="7hi-bA-0n9" firstAttribute="top" secondItem="yvm-tg-kgA" secondAttribute="bottom" constant="2" id="jip-yN-t1C"/>
+                            <constraint firstItem="7hi-bA-0n9" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lEA-zy-8u3"/>
+                            <constraint firstItem="H9K-nE-6SW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="p9S-k5-B31"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="374.5"/>
         </scene>
     </scenes>
 </document>

@@ -10,17 +10,36 @@ import UIKit
 import Alamofire
 import Foundation
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var outputText: UITextView!
+    @IBOutlet weak var serverTextField: UITextField!
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    
+    var serverURL: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HomeViewController.getRequest), userInfo: nil, repeats: true)
+        
+        loadIndicator.stopAnimating()
+        serverTextField.delegate = self
+        repeatRequest()
+        
+    }
+    
+    func repeatRequest() {
+        if serverURL != nil {
+            _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(HomeViewController.getRequest), userInfo: nil, repeats: true)
+        } else {
+            self.outputText.text = "Enter a server URL!"
+        }
     }
     
     func getRequest() {
-        Alamofire.request(.GET, "https://59edf148.ngrok.io")
+        
+        loadIndicator.stopAnimating()
+        
+        Alamofire.request(.GET, serverURL!)
             .responseJSON { response in
                 if let JSON = response.result.value {
                     
@@ -34,6 +53,14 @@ class HomeViewController: UIViewController {
                     
                 }
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        serverURL = serverTextField.text
+        repeatRequest()
+        loadIndicator.startAnimating()
+        return true
     }
     
 }
