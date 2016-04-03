@@ -3,7 +3,7 @@ This is my project for Advanced Authentic Research (AAR). Follow the progress of
 
 ![](https://pugiblog.files.wordpress.com/2015/12/section1-epoc.png)
 
-## Usage
+## Extracting the Raw Data
 
 1) Download the repository
 
@@ -70,3 +70,9 @@ Traceback (most recent call last):
 9) Turn on the <a href="https://emotiv.com" target="_blank">Emotiv</a> and try again. A succesful output should be printed:
 
 ![](http://i.imgur.com/kKuvuHlm.png)
+
+## Displaying Data on an iOS Device
+
+After extracting the Emotiv data, I sent the data as a JSON file to a local server. Then, I created an iOS app and used <a href="https://github.com/Alamofire/Alamofire" target="_blank">Alamofire</a> to get request the data from the server. I created the app so that it would display the raw data on the iOS device. Here is what it looks like so far:
+
+![](https://media.giphy.com/media/nWbdCoU9LZfVe/giphy.gif)
