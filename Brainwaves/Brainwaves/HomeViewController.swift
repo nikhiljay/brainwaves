@@ -47,7 +47,6 @@ class HomeViewController: UIViewController, UITextFieldDelegate {
                     
                     for node in JSON as! [String: AnyObject] {
                         let nodeData = node.1["value"]!
-                        
                         self.outputText.text! += node.0 + ": " + String(nodeData!) + "\n"
                     }
                     
