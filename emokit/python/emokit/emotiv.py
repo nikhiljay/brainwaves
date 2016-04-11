@@ -6,9 +6,8 @@ if system_platform == "Windows":
     # #459)
     import socket
     import pywinusb.hid as hid
-else:
-    if system_platform == "Darwin":
-        import hid
+elif system_platform == "Darwin":
+    import hid
 import gevent
 from Crypto.Cipher import AES
 from Crypto import Random
