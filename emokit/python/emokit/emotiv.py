@@ -19,7 +19,7 @@ import json
 import threading
 
 
-@route('/')
+@route('/Users/Nikhil/Projects/Development/AAR/emokit/python/emokit/')
 def index():
     with open("data.txt") as tweetfile:
         pyresponse = tweetfile.read()
