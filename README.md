@@ -31,7 +31,7 @@ $ cd hidapi
 $ make -f Makefile-manual
 ```
 
-5) A hidtest file should be created in the same directory. Open the hidtest to run it.
+5) A hidtest file should be created in the same directory. Open the hidtest to run it. On linux, you must run this using sudo.
 
 6) The output should be a list of devices that are connected to the computer. Look at the Emotiv device information and copy the Serial Number.
 
